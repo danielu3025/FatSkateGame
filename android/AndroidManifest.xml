@@ -14,10 +14,7 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <android:uses-permission android:name="android.permission.READ_CALL_LOG" />
+6
 
     <application
         android:allowBackup="true"
@@ -36,13 +33,13 @@
             </intent-filter>
         </activity>
 
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="7ac8a2d1dece58e73cef1fbb5d81a33a98b4a6c5" />
-
         <activity
             android:name=".Test"
             android:label="@string/title_activity_test"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="7ac8a2d1dece58e73cef1fbb5d81a33a98b4a6c5"
+            />
     </application>
 
 </manifest>
