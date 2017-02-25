@@ -53,76 +53,81 @@ public class GameHendler {
 
 
     public GameHendler() {
-        batch = new SpriteBatch();
-        sky = new Texture("photos/sky.png");
-        skyLineClose = new Texture("photos/skyLineCloser.png");
-        skyLineFar = new Texture("photos/skyLineFar.png");
-        road = new Texture("photos/road.png");
-        trees = new Texture("photos/trees.png");
-        bar = new Texture("photos/bar.png");
-        head = new Texture("photos/head.png");
-        stop = new Texture("photos/stop.png");
-        stop2 = new Texture("photos/stopbt.png");
-        play = new Texture("photos/play.png");
-        resume = new Texture("photos/resume.png");
-        startbg = new Texture("photos/startBg.png");
-        gameover = new Texture("photos/gameover.png");
-        st = new Texture("photos/setting.png");
-        settingsPage = new Texture("photos/settingsPage.png");
-        timeOut = new Texture("photos/timeOut.png");
-        backIcon = new Texture("photos/backIcon.png");
-        sounOn  = new Texture("photos/soundOn.png");
-        soundOff  = new Texture("photos/soundOff.png");
-        fxOn = new Texture("photos/fxOn.png");
-        fxOff = new Texture("photos/fxOff.png");
-        about = new Texture("photos/fxOff.png");
-        best = new Texture("photos/best.png");
-        aboutBg = new Texture("photos/aboutBG.png");
-        guide = new Texture("photos/guide.png");
+        Thread  t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                batch = new SpriteBatch();
+                sky = new Texture("photos/sky.png");
+                skyLineClose = new Texture("photos/skyLineCloser.png");
+                skyLineFar = new Texture("photos/skyLineFar.png");
+                road = new Texture("photos/road.png");
+                trees = new Texture("photos/trees.png");
+                bar = new Texture("photos/bar.png");
+                head = new Texture("photos/head.png");
+                stop = new Texture("photos/stop.png");
+                stop2 = new Texture("photos/stopbt.png");
+                play = new Texture("photos/play.png");
+                resume = new Texture("photos/resume.png");
+                startbg = new Texture("photos/startBg.png");
+                gameover = new Texture("photos/gameover.png");
+                st = new Texture("photos/setting.png");
+                settingsPage = new Texture("photos/settingsPage.png");
+                timeOut = new Texture("photos/timeOut.png");
+                backIcon = new Texture("photos/backIcon.png");
+                sounOn  = new Texture("photos/soundOn.png");
+                soundOff  = new Texture("photos/soundOff.png");
+                fxOn = new Texture("photos/fxOn.png");
+                fxOff = new Texture("photos/fxOff.png");
+                about = new Texture("photos/fxOff.png");
+                best = new Texture("photos/best.png");
+                aboutBg = new Texture("photos/aboutBG.png");
+                guide = new Texture("photos/guide.png");
 
-        sounBt = new BottonImg("photos/soundOn.png",screenWidth/4,screenHight/3f,screenWidth/5,screenHight/6);
-        fxBt = new BottonImg("photos/fxOn.png",screenWidth/1.7f,screenHight/3f,screenWidth/5,screenHight/6);
-        aboutBt = new BottonImg("photos/about.png",screenWidth/1.2f,screenHight/1.2f,screenWidth/6,screenHight/7);
-        startPlayBt = new BottonImg("photos/playbutton.png",screenWidth/2.4f,screenHight/3.5f,screenWidth/4,screenHight/5);
-        settingsButton = new BottonImg("photos/setting.png",0,screenHight/1.2f,screenHight/7,screenHight/7);
-        backButton= new BottonImg("photos/backIcon.png",0,screenHight/1.2f,screenHight/7,screenHight/7);
-        pauseButton= new BottonImg("photos/stop.png",screenWidth/1.2f,screenHight/1.3f,screenWidth/8.3f,screenHight/6.5f);
+                sounBt = new BottonImg("photos/soundOn.png",screenWidth/4,screenHight/3f,screenWidth/5,screenHight/6);
+                fxBt = new BottonImg("photos/fxOn.png",screenWidth/1.7f,screenHight/3f,screenWidth/5,screenHight/6);
+                aboutBt = new BottonImg("photos/about.png",screenWidth/1.2f,screenHight/1.2f,screenWidth/6,screenHight/7);
+                startPlayBt = new BottonImg("photos/playbutton.png",screenWidth/2.4f,screenHight/3.5f,screenWidth/4,screenHight/5);
+                settingsButton = new BottonImg("photos/setting.png",0,screenHight/1.2f,screenHight/7,screenHight/7);
+                backButton= new BottonImg("photos/backIcon.png",0,screenHight/1.2f,screenHight/7,screenHight/7);
+                pauseButton= new BottonImg("photos/stop.png",screenWidth/1.2f,screenHight/1.3f,screenWidth/8.3f,screenHight/6.5f);
 
-        resumeButton = new BottonImg("photos/resume.png",screenWidth/1.65f,screenHight/3f,screenWidth/5,screenHight/6);
-        retryBotton = new BottonImg("photos/retry.png",screenWidth/2.5f,screenHight/3f,screenWidth/5,screenHight/6);
-        quitButton = new BottonImg("photos/quit.png",screenWidth/5.2f,screenHight/3f,screenWidth/5,screenHight/6);
+                resumeButton = new BottonImg("photos/resume.png",screenWidth/1.65f,screenHight/3f,screenWidth/5,screenHight/6);
+                retryBotton = new BottonImg("photos/retry.png",screenWidth/2.5f,screenHight/3f,screenWidth/5,screenHight/6);
+                quitButton = new BottonImg("photos/quit.png",screenWidth/5.2f,screenHight/3f,screenWidth/5,screenHight/6);
 
-        randdomGenerator = new Random();
-        fatBoy = new FatBoy();
-        food = new Food();
-        fatboyRect = new Rectangle(70 + fatBoy.width / 2, fatBoy.yPosition, fatBoy.width, fatBoy.hieght * 2.5f);
+                randdomGenerator = new Random();
+                fatBoy = new FatBoy();
+                food = new Food();
+                fatboyRect = new Rectangle(70 + fatBoy.width / 2, fatBoy.yPosition, fatBoy.width, fatBoy.hieght * 2.5f);
 
-        barLen = screenWidth / 2;
-        headPos = screenWidth / 4f + screenWidth / 5;
+                barLen = screenWidth / 2;
+                headPos = screenWidth / 4f + screenWidth / 5;
 
-        musicGame = new MusicGame();
-        // check if thre is a seved preferance allredy
-        try {
-            prefs = Gdx.app.getPreferences("gamePreferences");
-            musicIsOn =  prefs.getString("music");
-            fxIsOn =  prefs.getString("fx");
-            if (musicIsOn == ""){
-                musicIsOn = "1";
+                musicGame = new MusicGame();
+                // check if thre is a seved preferance allredy
+                try {
+                    prefs = Gdx.app.getPreferences("gamePreferences");
+                    musicIsOn =  prefs.getString("music");
+                    fxIsOn =  prefs.getString("fx");
+                    if (musicIsOn == ""){
+                        musicIsOn = "1";
+                    }
+                    if (fxIsOn == ""){
+                        fxIsOn = "1";
+                    }
+
+                }catch (Exception e){
+                    System.out.println("no saved prefernces");
+                    musicIsOn = "1";
+                    fxIsOn = "1";
+                }
+                System.out.println("sund:"+ musicIsOn);
+                System.out.println("fx:"+ fxIsOn);
+
+                halfScreenHight = screenHight / 2;
             }
-            if (fxIsOn == ""){
-                fxIsOn = "1";
-            }
-
-        }catch (Exception e){
-            System.out.println("no saved prefernces");
-            musicIsOn = "1";
-            fxIsOn = "1";
-        }
-        System.out.println("sund:"+ musicIsOn);
-        System.out.println("fx:"+ fxIsOn);
-
-        halfScreenHight = screenHight / 2;
-
+        });
+        t.run();
     }
 
     //sets all game parameters for a new game

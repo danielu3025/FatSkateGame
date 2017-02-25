@@ -7,35 +7,28 @@ import static com.fatsfoodhenkar.game.Game.gameHendler;
 
 public class Game extends ApplicationAdapter {
 	static GameHendler gameHendler;
-
-    int count  = 0;
-    float avg = 0;
+    Thread gameThread   = new Thread(new GameRunnable());
+    Thread musicThread = new Thread( new SoundRunnable());
 
 	@Override
 	public void create() {
-		gameHendler = new GameHendler();
+        gameHendler = new GameHendler();
         gameHendler.fatBoy = new FatBoy();
         gameHendler.food = new Food();
 		gameHendler.initFont();
-
+        gameThread.start();
+        musicThread.start();
     }
 	@Override
 	 public void render() {
-
-        gameHendler.batch.begin();
-        Thread gameThread   = new Thread(new GameRunnable());
-        Thread musicThread = new Thread( new SoundRunnable());
-        gameHendler.drowRuner();
-        gameHendler.batch.end();
-        gameThread.start();
-        musicThread.start();
+        gameThread.run();
+        musicThread.run();
     }
 
 	@Override
 	public void dispose() {
 		gameHendler.batch.dispose();
 		gameHendler.font.dispose();
-
 	}
 }
 
@@ -43,7 +36,9 @@ class  GameRunnable implements Runnable{
 
     @Override
     public void run() {
-
+        gameHendler.batch.begin();
+        gameHendler.drowRuner();
+        gameHendler.batch.end();
         if (gameHendler.gameState == 1) {
             gameHendler.backgroundCalcPostion();
             gameHendler.gameRuner();
@@ -53,21 +48,13 @@ class  GameRunnable implements Runnable{
             gameHendler.fatBoy.spriteChanger();
             gameHendler.playJumpSound();
             gameHendler.dodheJumpSound();
-
         }
-       // System.out.println("GameRunablbe");
-//        try {
-//            Thread.sleep(5);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-
     }
 }
 class  SoundRunnable implements  Runnable{
 
     @Override
     public void run() {
-            gameHendler.bgMusicPlayer();
+        gameHendler.bgMusicPlayer();
     }
 }
